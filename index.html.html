@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang='pt-br'>
+<head>
+<meta charset='UTF-8'>
+<title>Pedido - MARCIA BOLOS E MACARONS</title>
+<style>
+body { font-family: Arial; margin: 40px; }
+label, select, input, textarea { display: block; margin: 10px 0; width: 100%; max-width: 500px; }
+.resultado { margin-top: 20px; font-weight: bold; }
+.info { margin-top: 30px; font-size: 14px; color: #333; }
+</style>
+</head>
+<body>
+<h2>🎂 Pedido - MARCIA BOLOS E MACARONS</h2>
+<p>Jaraguá do Sul</p>
+<form>
+<label>Nome do Cliente:</label>
+<input type='text' id='nome'>
+
+<label>Data do Evento:</label>
+<input type='date' id='data'>
+
+<label>Tipo de Produto:</label>
+<select id='produto'>
+<option value='bolo'>Bolo</option>
+<option value='macaron_avulso'>Macarons Avulsos</option>
+<option value='torre_macarons'>Torre de Macarons</option>
+</select>
+
+<div id='bolo_fields'>
+<label>Sabor do Bolo:</label>
+<select id='sabor_bolo'>
+<option value='Strogonoff de Nozes'>Strogonoff de Nozes</option><option value='Pistache com Chocolate Branco'>Pistache com Chocolate Branco</option><option value='Chocolate Branco com Damasco e Strogonoff de Nozes'>Chocolate Branco com Damasco e Strogonoff de Nozes</option><option value='Triplo Chocolate'>Triplo Chocolate</option><option value='Doce de Leite com Praliné de Nozes e Limão Siciliano'>Doce de Leite com Praliné de Nozes e Limão Siciliano</option><option value='Chocolate Meio Amargo com Caramelo e Flor de Sal'>Chocolate Meio Amargo com Caramelo e Flor de Sal</option><option value='Ferrero Rocher'>Ferrero Rocher</option><option value='Lemon Fresh com Praliné de Nozes'>Lemon Fresh com Praliné de Nozes</option><option value='Amendoim com Caramelo e Flor de Sal'>Amendoim com Caramelo e Flor de Sal</option><option value='Chocolate ao Leite com Coulis de Frutas Vermelhas'>Chocolate ao Leite com Coulis de Frutas Vermelhas</option><option value='Chocolate Passion'>Chocolate Passion</option><option value='Vanille Passion'>Vanille Passion</option><option value='Três Leites com Compota de Abacaxi'>Três Leites com Compota de Abacaxi</option><option value='Três Leites com Coulis de Frutas Vermelhas'>Três Leites com Coulis de Frutas Vermelhas</option><option value='Limão Siciliano com Coulis de Frutas Vermelhas'>Limão Siciliano com Coulis de Frutas Vermelhas</option><option value='Pistache com Coulis de Frutas Vermelhas'>Pistache com Coulis de Frutas Vermelhas</option>
+</select>
+<label>Tamanho do Bolo:</label>
+<select id='tamanho_bolo'>
+<option value='Petit'>Petit - R$150.00 (12 cm | 6-8 fatias | 2 camadas)</option><option value='PP'>PP - R$250.00 (14 cm | 10-12 fatias | 3 camadas)</option><option value='P'>P - R$300.00 (16 cm | 17-20 fatias | 3 camadas)</option><option value='M'>M - R$390.00 (18 cm | 25-30 fatias | 3 camadas)</option><option value='G'>G - R$440.00 (20 cm | 30-35 fatias | 3 camadas)</option><option value='GG'>GG - R$520.00 (22 cm | 40-45 fatias | 3 camadas)</option><option value='GG1'>GG1 - R$680.00 (24 cm | 50-60 fatias | 3 camadas)</option>
+</select>
+<label><input type='checkbox' id='restricao'> Sem glúten/lactose (+20%)</label>
+</div>
+
+<div id='macaron_fields' style='display:none;'>
+<label>Quantidade de Macarons Avulsos (R$9,00 cada):</label>
+<input type='number' id='qtd_macarons' min='1'>
+<label>Sabor:</label>
+<select id='sabor_macaron'>
+<option value='Pistache'>Pistache</option><option value='Limão siciliano'>Limão siciliano</option><option value='Laranja'>Laranja</option><option value='Frutas vermelhas'>Frutas vermelhas</option><option value='Baunilha'>Baunilha</option><option value='Chocolate ao leite'>Chocolate ao leite</option><option value='Avelã'>Avelã</option><option value='Coco'>Coco</option><option value='Limão Taiti'>Limão Taiti</option><option value='Caramelo e flor de sal'>Caramelo e flor de sal</option><option value='Amendoim'>Amendoim</option><option value='Café'>Café</option>
+</select>
+</div>
+
+<div id='torre_fields' style='display:none;'>
+<label>Tamanho da Torre:</label>
+<select id='torre_tamanho'>
+<option value='T5'>T5 - 50 macarons - R$490.00</option><option value='T6'>T6 - 70 macarons - R$660.00</option><option value='T7'>T7 - 95 macarons - R$890.00</option><option value='T8'>T8 - 115 macarons - R$1100.00</option><option value='T9'>T9 - 145 macarons - R$1340.00</option><option value='T10'>T10 - 185 macarons - R$1690.00</option><option value='T11'>T11 - 235 macarons - R$2135.00</option><option value='T12'>T12 - 300 macarons - R$2730.00</option>
+</select>
+<label>Sabores:</label>
+<select id='sabores_torre' multiple>
+<option value='Pistache'>Pistache</option><option value='Limão siciliano'>Limão siciliano</option><option value='Laranja'>Laranja</option><option value='Frutas vermelhas'>Frutas vermelhas</option><option value='Baunilha'>Baunilha</option><option value='Chocolate ao leite'>Chocolate ao leite</option><option value='Avelã'>Avelã</option><option value='Coco'>Coco</option><option value='Limão Taiti'>Limão Taiti</option><option value='Caramelo e flor de sal'>Caramelo e flor de sal</option><option value='Amendoim'>Amendoim</option><option value='Café'>Café</option>
+</select>
+<label>Cores (mínimo 15 macarons por cor):</label>
+<input type='text' id='cores_torre' placeholder='Ex: rosa, azul, branco'>
+</div>
+
+<label>Modelo de Decoração:</label>
+<textarea id='decoracao'></textarea>
+<button type='button' onclick='calcularValor()'>Calcular Valor</button>
+</form>
+<div class='resultado' id='resultado'></div>
+<div class='info'>
+<p><strong>Entrega:</strong> Taxa mínima de R$40,00. Para torres, valor sob consulta.</p>
+<p><strong>Confirmação:</strong> 50% antecipado via Pix ou transferência. Restante no dia.</p>
+<p><strong>Agendamento:</strong> Torres devem ser agendadas com mínimo de 30 dias de antecedência.</p>
+<p><strong>Envio:</strong> Envie os dados para o WhatsApp <a href='https://wa.me/5547996716297' target='_blank'>47 99671-6297</a>.</p>
+</div>
+<script>
+document.getElementById('produto').addEventListener('change', function() {
+    document.getElementById('bolo_fields').style.display = this.value === 'bolo' ? 'block' : 'none';
+    document.getElementById('macaron_fields').style.display = this.value === 'macaron_avulso' ? 'block' : 'none';
+    document.getElementById('torre_fields').style.display = this.value === 'torre_macarons' ? 'block' : 'none';
+});
+
+function calcularValor() {
+    let tipo = document.getElementById('produto').value;
+    let valor = 0;
+    if (tipo === 'bolo') {
+        let tamanho = document.getElementById('tamanho_bolo').value;
+        let precos = {"Petit":150,"PP":250,"P":300,"M":390,"G":440,"GG":520,"GG1":680};
+        valor = precos[tamanho];
+        if (document.getElementById('restricao').checked) valor *= 1.2;
+        valor += 40;
+    } else if (tipo === 'macaron_avulso') {
+        let qtd = parseInt(document.getElementById('qtd_macarons').value);
+        valor = qtd * 9;
+        valor += 40;
+    } else if (tipo === 'torre_macarons') {
+        let torre = document.getElementById('torre_tamanho').value;
+        let precos = {"T5":490,"T6":660,"T7":890,"T8":1100,"T9":1340,"T10":1690,"T11":2135,"T12":2730};
+        valor = precos[torre];
+    }
+    document.getElementById('resultado').innerText = `Valor estimado: R$${valor.toFixed(2)}`;
+}
+</script>
+</body>
+</html>
