@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang='pt-br'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Formulário de Pedido de Bolo</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        label, select, input { display: block; margin: 10px 0; }
+        .resultado { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>🍰 Formulário de Pedido de Bolo</h2>
+    <form>
+        <label for="tamanho">Escolha o tamanho do bolo:</label>
+        <select id="tamanho">
+            <option value="Petit">Petit - R$150,00</option>
+            <option value="PP">PP - R$250,00</option>
+            <option value="P">P - R$300,00</option>
+            <option value="M">M - R$390,00</option>
+            <option value="G">G - R$440,00</option>
+            <option value="GG">GG - R$520,00</option>
+            <option value="GG1">GG1 - R$680,00</option>
+        </select>
+
+        <label>
+            <input type="checkbox" id="restricao"> Sem glúten e sem lactose (+20%)
+        </label>
+
+        <button type="button" onclick="calcularValor()">Calcular Valor</button>
+    </form>
+
+    <div class="resultado" id="resultado"></div>
+
+    <script>
+        const precos = {
+            "Petit": 150.00,
+            "PP": 250.00,
+            "P": 300.00,
+            "M": 390.00,
+            "G": 440.00,
+            "GG": 520.00,
+            "GG1": 680.00
+        };
+
+        function calcularValor() {
+            const tamanho = document.getElementById("tamanho").value;
+            const restricao = document.getElementById("restricao").checked;
+            let valor = precos[tamanho];
+            if (restricao) valor *= 1.20;
+            document.getElementById("resultado").innerText = `Valor final: R$${valor.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
